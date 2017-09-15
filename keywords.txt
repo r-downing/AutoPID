@@ -1,0 +1,27 @@
+#######################################
+# Syntax Coloring Map For AutoPID Library
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+AutoPID	KEYWORD1
+AutoPIDRelay	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setGains	KEYWORD2
+setBangBang	KEYWORD2
+setOutputRange	KEYWORD2
+setTimeStep	KEYWORD2
+atSetPoint	KEYWORD2
+run	KEYWORD2
+stop	KEYWORD2
+reset	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
