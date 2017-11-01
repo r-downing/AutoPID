@@ -10,6 +10,6 @@ Arduino AutoPID library
 ## Documentation
 
 ### AutoPID Functions
-#### Constructor
+#### AutoPID::Constructor
 
 ## Examples
