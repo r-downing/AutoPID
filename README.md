@@ -30,7 +30,8 @@ Arduino AutoPID library
 ### AutoPID::Constructor
 > Creates a new AutoPID object
 ```cpp
-AutoPID(double *input, double *setpoint, double *output, double outputMin, double outputMax, 
+AutoPID(double *input, double *setpoint, double *output, 
+  double outputMin, double outputMax, 
   double Kp, double Ki, double Kd)
 ```
  - `input`, `setpoint`, and `output` are pointers to the variables holding these values. When they are changed in elswhere in the program, the PID updates itself on the next calculation. 
