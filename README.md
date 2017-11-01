@@ -1,4 +1,15 @@
 # AutoPID
 Arduino AutoPID library
 
-gh-pages documentation coming soon
+## Contents
+ - [Documentation](#documentation)
+   - [AutoPID Functions](#autopid-functions)
+   - [AutoPIDRelay Functions](#autopidrelay-functions)
+ - [Examples](#examples)
+
+## Documentation
+
+### AutoPID Functions
+#### Constructor
+
+## Examples
