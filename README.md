@@ -5,7 +5,7 @@ Arduino AutoPID library
 	- [Via Arduino IDE Library Manager](#via-arduino-ide-library-manager)
 - [Documentation](#documentation)
 	- [AutoPID Functions](#autopid-functions)
-		- [AutoPID::Constructor](#autopidconstructor)
+		- [AutoPID::AutoPID Constructor](#autopidautopid-constructor)
 		- [AutoPID::setGains](#autopidsetgains)
 		- [AutoPID::setBangBang](#autopidsetbangbang)
 		- [AutoPID::setOutputRange](#autopidsetoutputrange)
@@ -16,6 +16,8 @@ Arduino AutoPID library
 		- [AutoPID::reset](#autopidreset)
 		- [AutoPID::isStopped](#autopidisstopped)
 	- [AutoPIDRelay Functions](#autopidrelay-functions)
+		- [AutoPIDRelay::AutoPIDRelay Constructor](#autopidrelayautopidrelay-constructor)
+		- [AutoPIDRelay::getPulseValue](#autopidrelaygetpulsevalue)
 - [Examples](#examples)
  
 # Installation
@@ -27,7 +29,7 @@ Arduino AutoPID library
 
 ## AutoPID Functions
 
-### AutoPID::Constructor
+### AutoPID::AutoPID Constructor
 > Creates a new AutoPID object
 ```cpp
 AutoPID(double *input, double *setpoint, double *output, 
@@ -115,6 +117,21 @@ bool isStopped()
  - `return` *true* if PID has been stopped
  
 ## AutoPIDRelay Functions
+
+### AutoPIDRelay::AutoPIDRelay Constructor
+```cpp
+AutoPIDRelay(double *input, double *setpoint, bool *relayState,
+  double pulseWidth, double Kp, double Ki, double Kd)
+```
+ - `input`, `setpoint`, and `relayState` are pointers to the variables holding these values. When they are changed in elswhere in the program, the PID updates itself on the next calculation.
+ - `pulseWidth` is the PWM pulse witdh in milliseconds
+ - `Kp`, `Ki`, and `Kd` are the PID proportional, integral, and derivative gains.
+
+### AutoPIDRelay::getPulseValue
+```cpp
+double getPulseValue();
+```
+ - `return` the current pulse length. Relay state is already managed internally, but this can be used as well
 
 
 # Examples
