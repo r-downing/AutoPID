@@ -1,6 +1,9 @@
 # AutoPID
 Arduino AutoPID library
 - [AutoPID](#autopid)
+- [About](#about)
+					- [> ###### https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif](#httpsuploadwikimediaorgwikipediacommons333pidcompensationanimatedgif)
+	- [Features](#features)
 - [Installation](#installation)
 	- [Via Arduino IDE Library Manager](#via-arduino-ide-library-manager)
 - [Documentation](#documentation)
@@ -25,6 +28,7 @@ Arduino AutoPID library
 > A proportional–integral–derivative controller (PID controller or three term controller) is a control loop feedback mechanism widely used in industrial control systems and a variety of other applications requiring continuously modulated control. A PID controller continuously calculates an error value ***e(t)*** as the difference between a desired setpoint (SP) and a measured process variable (PV) and applies a correction based on proportional, integral, and derivative terms (denoted P, I, and D respectively) which give their name to the controller.
 
 > ![](https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif)
+> ###### https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif
 
 ## Features
 
