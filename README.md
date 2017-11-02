@@ -168,3 +168,7 @@ double getPulseValue();
 
 
 # Examples
+
+
+----
+[Ryan Downing ~ 2017](https://r-downing.github.io)
