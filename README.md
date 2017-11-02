@@ -2,6 +2,7 @@
 Arduino AutoPID library
 - [AutoPID](#autopid)
 - [About](#about)
+	- [PID Controllers](#pid-controllers)
 	- [Features](#features)
 		- [Time-scaling and Automatic Value Updating](#time-scaling-and-automatic-value-updating)
 		- [Bang-Bang Control](#bang-bang-control)
@@ -26,6 +27,8 @@ Arduino AutoPID library
 - [Examples](#examples)
  
 # About
+
+## PID Controllers
 
 > [***PID controller*** on Wikipedia:](https://en.wikipedia.org/wiki/PID_controller) A proportional–integral–derivative controller (PID controller or three term controller) is a control loop feedback mechanism widely used in industrial control systems and a variety of other applications requiring continuously modulated control. A PID controller continuously calculates an error value ***e(t)*** as the difference between a desired setpoint (SP) and a measured process variable (PV) and applies a correction based on proportional, integral, and derivative terms (denoted P, I, and D respectively) which give their name to the controller.
 
