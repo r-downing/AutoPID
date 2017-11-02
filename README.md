@@ -20,6 +20,14 @@ Arduino AutoPID library
 		- [AutoPIDRelay::getPulseValue](#autopidrelaygetpulsevalue)
 - [Examples](#examples)
  
+# About
+[***PID controller*** on Wikipedia](https://en.wikipedia.org/wiki/PID_controller)
+> A proportional–integral–derivative controller (PID controller or three term controller) is a control loop feedback mechanism widely used in industrial control systems and a variety of other applications requiring continuously modulated control. A PID controller continuously calculates an error value ***e(t)*** as the difference between a desired setpoint (SP) and a measured process variable (PV) and applies a correction based on proportional, integral, and derivative terms (denoted P, I, and D respectively) which give their name to the controller.
+
+![](https://en.wikipedia.org/wiki/PID_controller#/media/File:PID_Compensation_Animated.gif)
+
+## Features
+
 # Installation
 ## Via Arduino IDE Library Manager
 **Sketch** -> **Include Library** -> **Manage Libraries...** -> search for "autopid"
