@@ -2,8 +2,10 @@
 Arduino AutoPID library
 - [AutoPID](#autopid)
 - [About](#about)
-					- [> ###### https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif](#httpsuploadwikimediaorgwikipediacommons333pidcompensationanimatedgif)
 	- [Features](#features)
+		- [Time-scaling and Automatic Value Updating](#time-scaling-and-automatic-value-updating)
+		- [Bang-Bang Control](#bang-bang-control)
+		- [PWM (Relay) Control](#pwm-relay-control)
 - [Installation](#installation)
 	- [Via Arduino IDE Library Manager](#via-arduino-ide-library-manager)
 - [Documentation](#documentation)
@@ -24,13 +26,29 @@ Arduino AutoPID library
 - [Examples](#examples)
  
 # About
-[***PID controller*** on Wikipedia](https://en.wikipedia.org/wiki/PID_controller)
-> A proportional–integral–derivative controller (PID controller or three term controller) is a control loop feedback mechanism widely used in industrial control systems and a variety of other applications requiring continuously modulated control. A PID controller continuously calculates an error value ***e(t)*** as the difference between a desired setpoint (SP) and a measured process variable (PV) and applies a correction based on proportional, integral, and derivative terms (denoted P, I, and D respectively) which give their name to the controller.
+
+> [***PID controller*** on Wikipedia:](https://en.wikipedia.org/wiki/PID_controller) A proportional–integral–derivative controller (PID controller or three term controller) is a control loop feedback mechanism widely used in industrial control systems and a variety of other applications requiring continuously modulated control. A PID controller continuously calculates an error value ***e(t)*** as the difference between a desired setpoint (SP) and a measured process variable (PV) and applies a correction based on proportional, integral, and derivative terms (denoted P, I, and D respectively) which give their name to the controller.
+
 
 > ![](https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif)
-> ###### https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif
+<sup> https://upload.wikimedia.org/wikipedia/commons/3/33/PID_Compensation_Animated.gif</sup>
 
 ## Features
+
+### Time-scaling and Automatic Value Updating
+The PID controller's run() function can be called as often as possible in the main loop, and will automatically only perform the updated calculations at a specified time-interval. The calculations take the length of this time-interval into account, so the interval can be adjusted without needing to recaculate the PID gains.
+
+Since the PID object stores pointers to the input, setpoint, and output, it can automatically update those variables without extra assignment statements.
+
+### Bang-Bang Control
+This library includes optional built-in bang-bang control. When the input is outside of a specified range from the setpoint, the PID control is deactivated, and the output is instead driven to max (bang-on) or min (bang-off). 
+
+This can help approach the setpoint faster, and reduce overshooting due to integrator wind-up.
+
+### PWM (Relay) Control
+Since the output of a PID control is an analog value, this can be adapted to control an on-off digital output (such as a relay) using pulse-width modulation.
+
+
 
 # Installation
 ## Via Arduino IDE Library Manager
