@@ -59,7 +59,7 @@ Since the output of a PID control is an analog value, this can be adapted to con
 # Installation
 ## Via Arduino IDE Library Manager
 **Sketch** -> **Include Library** -> **Manage Libraries...** -> search for "autopid"
-![Arduino Library Manager screen](https://i.imgur.com/w2jX1HL.png)
+![Arduino Library Manager screen](/img/librarymanager.png)
 
 ## Via ZIP File
 [Download zip file](https://github.com/r-downing/AutoPID/archive/master.zip) and extract to *Arduino/libraries* folder
