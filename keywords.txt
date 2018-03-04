@@ -21,6 +21,8 @@ atSetPoint	KEYWORD2
 run	KEYWORD2
 stop	KEYWORD2
 reset	KEYWORD2
+setIntegral	KEYWORD2
+getIntegral	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

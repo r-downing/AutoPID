@@ -28,6 +28,9 @@ class AutoPID {
     void reset();
     bool isStopped();
 
+    double getIntegral();
+    void setIntegral(double integral);
+
   private:
     double _Kp, _Ki, _Kd;
     double _integral, _previousError;

@@ -82,6 +82,14 @@ bool AutoPID::isStopped(){
   return _stopped;
 }
 
+double AutoPID::getIntegral(){
+  return _integral;
+}
+
+void AutoPID::setIntegral(double integral){
+  _integral = integral;
+}
+
 void AutoPIDRelay::run() {
   AutoPID::run();
   while ((millis() - _lastPulseTime) > _pulseWidth) _lastPulseTime += _pulseWidth;
