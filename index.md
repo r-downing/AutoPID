@@ -2,32 +2,34 @@
 Arduino AutoPID library
 - [AutoPID](#autopid)
 - [About](#about)
-	- [PID Controllers](#pid-controllers)
-	- [Features](#features)
-		- [Time-scaling and Automatic Value Updating](#time-scaling-and-automatic-value-updating)
-		- [Bang-Bang Control](#bang-bang-control)
-		- [PWM (Relay) Control](#pwm-relay-control)
+  - [PID Controllers](#pid-controllers)
+  - [Features](#features)
+    - [Time-scaling and Automatic Value Updating](#time-scaling-and-automatic-value-updating)
+    - [Bang-Bang Control](#bang-bang-control)
+    - [PWM (Relay) Control](#pwm-relay-control)
 - [Installation](#installation)
-	- [Via Arduino IDE Library Manager](#via-arduino-ide-library-manager)
-	- [Via ZIP File](#via-zip-file)
+  - [Via Arduino IDE Library Manager](#via-arduino-ide-library-manager)
+  - [Via ZIP File](#via-zip-file)
 - [Documentation](#documentation)
-	- [AutoPID Functions](#autopid-functions)
-		- [AutoPID::AutoPID Constructor](#autopidautopid-constructor)
-		- [AutoPID::setGains](#autopidsetgains)
-		- [AutoPID::setBangBang](#autopidsetbangbang)
-		- [AutoPID::setOutputRange](#autopidsetoutputrange)
-		- [AutoPID::setTimeStep](#autopidsettimestep)
-		- [AutoPID::atSetPoint](#autopidatsetpoint)
-		- [AutoPID::run](#autopidrun)
-		- [AutoPID::stop](#autopidstop)
-		- [AutoPID::reset](#autopidreset)
-		- [AutoPID::isStopped](#autopidisstopped)
-	- [AutoPIDRelay Functions](#autopidrelay-functions)
-		- [AutoPIDRelay::AutoPIDRelay Constructor](#autopidrelayautopidrelay-constructor)
-		- [AutoPIDRelay::getPulseValue](#autopidrelaygetpulsevalue)
+  - [AutoPID Functions](#autopid-functions)
+    - [AutoPID::AutoPID Constructor](#autopidautopid-constructor)
+    - [AutoPID::setGains](#autopidsetgains)
+    - [AutoPID::setBangBang](#autopidsetbangbang)
+    - [AutoPID::setOutputRange](#autopidsetoutputrange)
+    - [AutoPID::setTimeStep](#autopidsettimestep)
+    - [AutoPID::atSetPoint](#autopidatsetpoint)
+    - [AutoPID::run](#autopidrun)
+    - [AutoPID::stop](#autopidstop)
+    - [AutoPID::reset](#autopidreset)
+    - [AutoPID::isStopped](#autopidisstopped)
+    - [AutoPID::getIntegral](#autopidgetintegral)
+    - [AutoPID::setIntegral](#autopidsetintegral)
+  - [AutoPIDRelay Functions](#autopidrelay-functions)
+    - [AutoPIDRelay::AutoPIDRelay Constructor](#autopidrelayautopidrelay-constructor)
+    - [AutoPIDRelay::getPulseValue](#autopidrelaygetpulsevalue)
 - [Examples](#examples)
-	- [Basic Temperature Control](#basic-temperature-control)
-	- [Relay Temperature Control](#relay-temperature-control)
+  - [Basic Temperature Control](#basic-temperature-control)
+  - [Relay Temperature Control](#relay-temperature-control)
  
 # About
 
@@ -154,7 +156,22 @@ void reset()
 bool isStopped()
 ```
  - `return` *true* if PID has been stopped
- 
+
+### AutoPID::getIntegral
+> Get current value of integral. Useful for storing states after a power cycle
+```cpp
+double getIntegral()
+```
+ - `return` the current value of the error integral
+
+### AutoPID::setIntegral
+> Override current value of integral, useful for resuming states after a power cycle
+```cpp
+void setIntegral(double integral)
+```
+ - `integral` is the value of the error integral to be used
+ - This should be called after `run()` is called for the first time, otherwise it will be reset
+
 ## AutoPIDRelay Functions
 
 ### AutoPIDRelay::AutoPIDRelay Constructor
