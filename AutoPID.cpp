@@ -48,14 +48,14 @@ void AutoPID::run() {
   //if bang thresholds are defined and we're outside of them, use bang-bang control
   if (_bangOn && ((*_setpoint - *_input) > _bangOn)) {
     *_output = _outputMax;
-    _lastStep = millis();
+    _lastStep = micros();
   } else if (_bangOff && ((*_input - *_setpoint) > _bangOff)) {
     *_output = _outputMin;
-    _lastStep = millis();
+    _lastStep = micros();
   } else {                                    //otherwise use PID control
-    unsigned long _dT = millis() - _lastStep;   //calculate time since last update
+    unsigned long _dT = micros() - _lastStep;   //calculate time since last update
     if (_dT >= _timeStep) {                     //if long enough, do PID calculations
-      _lastStep = millis();
+      _lastStep = micros();
       double _error = *_setpoint - *_input;
       _integral += (_error + _previousError) / 2 * _dT / 1000.0;   //Riemann sum integral
       //_integral = constrain(_integral, _outputMin/_Ki, _outputMax/_Ki);
@@ -73,7 +73,7 @@ void AutoPID::stop() {
   reset();
 }
 void AutoPID::reset() {
-  _lastStep = millis();
+  _lastStep = micros();
   _integral = 0;
   _previousError = 0;
 }
@@ -92,13 +92,12 @@ void AutoPID::setIntegral(double integral){
 
 void AutoPIDRelay::run() {
   AutoPID::run();
-  while ((millis() - _lastPulseTime) > _pulseWidth) _lastPulseTime += _pulseWidth;
-  *_relayState = ((millis() - _lastPulseTime) < (_pulseValue * _pulseWidth));
+  while ((micros() - _lastPulseTime) > _pulseWidth) _lastPulseTime += _pulseWidth;
+  *_relayState = ((micros() - _lastPulseTime) < (_pulseValue * _pulseWidth));
 }
 
 
 double AutoPIDRelay::getPulseValue(){
   return (isStopped()?0:_pulseValue);
 }
-
 
