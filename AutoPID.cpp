@@ -1,4 +1,15 @@
+#ifndef ESP_PLATFORM
 #include "AutoPID.h"
+#else
+#include <math.h>
+#include "esp_timer.h"
+#endif
+
+#ifdef ESP_PLATFORM
+unsigned long millis() {
+  return (unsigned long)esp_timer_get_time()/1000;
+}
+#endif
 
 AutoPID::AutoPID(double *input, double *setpoint, double *output, double outputMin, double outputMax,
                  double Kp, double Ki, double Kd) {
@@ -100,5 +111,3 @@ void AutoPIDRelay::run() {
 double AutoPIDRelay::getPulseValue(){
   return (isStopped()?0:_pulseValue);
 }
-
-
