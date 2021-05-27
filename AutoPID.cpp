@@ -1,6 +1,5 @@
-#ifndef ESP_PLATFORM
 #include "AutoPID.h"
-#else
+#ifdef ESP_PLATFORM
 #include <math.h>
 #include "esp_timer.h"
 #endif
