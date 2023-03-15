@@ -269,9 +269,7 @@ void loop() {
 }//void loop
 ```
 ## Relay Temperature Control
-```cpp
-...
-```
+[See an example usage here](https://github.com/r-downing/wifi-sous-vide/blob/master/wifi-sous-vide.ino)
 
 ----
 [Ryan Downing ~ 2017](https://r-downing.github.io)
