@@ -1,6 +1,8 @@
 #ifndef AUTOPID_H
 #define AUTOPID_H
+#ifndef ESP_PLATFORM
 #include <Arduino.h>
+#endif
 
 class AutoPID {
 

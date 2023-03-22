@@ -1,4 +1,26 @@
 #include "AutoPID.h"
+#ifdef ESP_PLATFORM
+#include <math.h>
+#include "esp_timer.h"
+#endif
+
+#ifdef ESP_PLATFORM
+unsigned long millis() {
+  return (unsigned long)esp_timer_get_time()/1000;
+}
+
+template<class T>
+const T& constrain(const T& x, const T& a, const T& b) {
+    if(x < a) {
+        return a;
+    }
+    else if(b < x) {
+        return b;
+    }
+    else
+        return x;
+}
+#endif
 
 AutoPID::AutoPID(double *input, double *setpoint, double *output, double outputMin, double outputMax,
                  double Kp, double Ki, double Kd) {
@@ -100,5 +122,3 @@ void AutoPIDRelay::run() {
 double AutoPIDRelay::getPulseValue(){
   return (isStopped()?0:_pulseValue);
 }
-
-
