@@ -92,7 +92,9 @@ void AutoPID::setIntegral(double integral){
 
 void AutoPIDRelay::run() {
   AutoPID::run();
-  while ((millis() - _lastPulseTime) > _pulseWidth) _lastPulseTime += _pulseWidth;
+  const unsigned long currentTime = millis();
+  while (currentTime > (_pulseWidth + _lastPulseTime))
+    _lastPulseTime += _pulseWidth;
   *_relayState = ((millis() - _lastPulseTime) < (_pulseValue * _pulseWidth));
 }
 
