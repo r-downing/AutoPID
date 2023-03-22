@@ -53,6 +53,7 @@ class AutoPIDRelay : public AutoPID {
 
     void run();
 
+    double setPulseWidth(double newPulseWidth) { this->_pulseWidth = newPulseWidth; };
     double getPulseValue();
 
   private:
